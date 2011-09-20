@@ -18,8 +18,8 @@ Under the hood, the framework is **Mint** by Squallstar Studio.
 You can try an online demo with a customer account here:
 
  * http://support.squallstar.it
- * //Username: demo
- * //Password: demo
+ * Username: demo
+ * Password: demo
 
 # Resources
 
