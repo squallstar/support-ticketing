@@ -33,6 +33,11 @@ You can try an online demo with a customer account here:
  * Username: demo
  * Password: demo
 
+# Notes
+
+ * The only supported Database is **MySQL**
+ * You need to create new projects via the database (we are working to implement a creation UI)
+
 # Resources
 
  * [Project homepage](https://github.com/squallstar/support-ticketing)
