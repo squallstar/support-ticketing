@@ -39,6 +39,7 @@ You can try an online demo with a customer account here:
 
 # Notes
 
+ * Currently the only available language is Italian
  * The only supported Database is **MySQL**
  * You need to create new projects and users via the database (we are working to implement a creation UI)
 
