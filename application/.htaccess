@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteBase /support/
+
+RewriteRule ^login$ /scripts/login.php
+
+RewriteRule ^list$ /scripts/list.php
+RewriteRule ^list/filter/([0-9A-Za-z]+)$ /scripts/list.php?filter=$1
+RewriteRule ^list/delete-ticket/([0-9]+)$ /scripts/list.php?remove_ticket=$1
+
+RewriteRule ^ticket/$ /scripts/list.php
+RewriteRule ^ticket/([0-9]+)$ /scripts/history.php?id=$1
+RewriteRule ^ticket/([0-9]+)/close$ /scripts/history.php?id=$1&request=close
+RewriteRule ^ticket/edit$ /scripts/ticket.php
+RewriteRule ^ticket/edit/([0-9]+)$ /scripts/ticket.php?id=$1
+
+RewriteRule ^manage/projects$ /scripts/projects.php
+RewriteRule ^manage/project/([0-9A-Za-z]+)$ /scripts/project.php?hash=$1
+
+RewriteRule ^send-mail$ /scripts/sendmail.php
+
+RewriteRule ^logout$ /scripts/logout.php

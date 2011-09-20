@@ -1,0 +1,48 @@
+<?php
+/**
+ * Support-Ticketing Header
+ *
+ * @package		Support-Ticketing
+ * @author		Nicholas Valbusa - info@squallstar.it - @squallstar
+ * @copyright	Copyright (c) 2011, Squallstar
+ * @license		GNU/GPL (General Public License)
+ * @link		http://squallstar.it
+ *
+ */
+ ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Support</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name = "description" content = "Description" />
+<meta name = "keywords" content = "key, words" />
+<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+<link rel="apple-touch-icon-precomposed" href="http://static.squallstar.it/images/touch-icon.png" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->root; echo $this->isMobile()?'mobile':'style'; ?>.css?v=1" />
+<link rel = "shortcut icon" href = "http://static.squallstar.it/images/favicon.gif" type = "image/gif" />
+<script language="javascript" src="http://static.squallstar.it/javascript/jquery.js" type="text/javascript"></script>
+<script language="javascript">
+var root = '<?php echo APPPATH; ?>';
+</script>
+<script language="javascript" src="<?php echo $this->root; ?>javascript/application.js" type="text/javascript"></script>
+<?php if ($this->isMobile()) { ?>
+<script type="text/javascript">
+window.scrollTo(0,1);
+</script>
+<?php } ?>
+</head>
+<body>
+
+<div id="wrapper">
+	<div class="header">
+		<div class="logo"><a href="<?php echo $this->root; if ($this->isLoggedIn()) { echo 'list'; } ?>"><img src="<?php echo $this->root; ?>img/logo.png" border="0" alt="" /></a></div>
+		<div class="settings">
+		<?php if ($this->isLoggedIn()) { ?>
+		<span class="name"><?php echo $_SESSION['me']['realname']; ?></span><br />
+		<a href="<?php echo $this->root; ?>logout">Esci</a>
+		<?php } ?>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div class="content">

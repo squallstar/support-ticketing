@@ -1,0 +1,324 @@
+<?php
+/**
+ * Support-Ticketing Mobile.css
+ *
+ * @package		Support-Ticketing
+ * @author		Nicholas Valbusa - info@squallstar.it - @squallstar
+ * @copyright	Copyright (c) 2011, Squallstar
+ * @license		GNU/GPL (General Public License)
+ * @link		http://squallstar.it
+ *
+ */
+
+body, html {
+	margin:0;
+	padding:0;
+	font-family:Sans-serif;
+	line-height:13px;
+	font-size:11px;
+	background-color:#e6eaef;
+	color:#555
+}
+img {
+  border:0
+}
+h1, .replytitle {
+	font-family:"Trebuchet MS", Arial, Helvetica;
+	font-size: 18px;
+	font-weight: normal;
+	text-transform: uppercase;
+	color:#334d66;
+}
+.replytitle {
+	font-size: 20px;
+	margin: 30px 0 15px 0;
+}
+*:focus {
+    -moz-outline: 0px solid lime;
+    outline: 0px solid lime;
+    outline-offset: 0px;
+}
+a:link, a:visited {
+	color:#334d66;
+}
+a:active {
+	color:#fc5290
+}
+fieldset {
+	margin:0;
+	padding:0;
+	border:0;
+}
+.clear {
+	clear:both	
+}
+#wrapper {
+	width: 320px;
+	margin: 0 auto;
+}
+.footer {
+	height:30px;
+	width:300px;
+	margin:0 auto;
+	padding:10px 0;
+}
+.header {
+	height:30px;
+	width:300px;
+	margin:0 auto;
+	padding:10px 0;
+}
+.header > .logo {
+	float:left;
+	width:150px;
+	display: block;
+}
+.header > .settings {
+	float:left;
+	width:150px;
+	text-align:right;
+	color:#334d66
+}
+.settings > .name {
+	font-size:12px;
+	line-height:15px
+}
+.content {
+	width:280px;
+	padding:15px 10px;
+	margin:0 auto 0 auto;
+	background:#FFF;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	border:1px solid #c3cedc;
+	font-size:12px;
+	line-height:15px;
+}
+input.default, textarea.default {
+	width:150px;
+	padding:6px 10px;
+	font-size:12px;
+	font-family:Helvetica, Arial;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background:#FFF;
+	border:1px solid #DDD;
+	margin:8px 0 5px 0;
+}
+
+.button, a.button{
+	background-color: #fc5290;
+	border:0;
+	display: inline-block;
+	padding: 7px 12px 8px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	font-size:12px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-box-shadow: 0 1px 3px #999;
+	-webkit-box-shadow: 0 1px 3px #999;
+	text-shadow: 0 -1px 1px #d24579;
+	border-bottom: 1px solid #d24579;
+	position: relative;
+	cursor: pointer;
+}
+.button:hover {
+	background-color:#fe76a7;
+}
+.button.blue {
+	background-color: #4b647d;
+	text-shadow: 0 -1px 1px #334d66;
+	border-bottom: 1px solid #334d66;
+}
+.button.blue:hover {
+	background-color: #5a738b;
+}
+.button.grey {
+	background-color: #EAEAEA;
+	text-shadow: none;
+	border-bottom: 1px solid #DDD;
+	color:#999;
+	font-size:11px;
+	font-weight:normal
+}
+.button.grey:hover {
+	color:#666;
+	background-color:#E6E6E6;
+}
+
+.error {
+	color:#FF0000;
+	padding:0 10px;
+}
+select.projects {
+	display:none
+}
+.ticket {
+	background:#F5F5F5;
+	border:1px solid #EEE;
+	padding:15px 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	line-height:17px;
+	margin-bottom:15px;
+}
+.ticket > .left {
+	width:100%;
+}
+.ticket > .right {
+	width:98px;
+	text-align:left;
+	margin-top:8px;
+}
+.ticket > .left > .secondline {
+	font-size:15px;
+	margin-bottom:3px;
+}
+
+.ticket.blue {
+	background:#dee8f3;
+	border:1px solid #c4d8ed
+}
+.ticket.blue .button {
+	background:#cfdeed;
+	border-bottom:1px solid #7da4d8;
+	color:#6a94cc;
+	-moz-box-shadow: 0 1px 3px #7da4d8;
+	-webkit-box-shadow: 0 1px 3px #7da4d8;
+}
+.ticket.blue .button:hover {
+	background:#c4d5e7;
+	color:#6a94cc;
+}
+
+.ticket.green {
+	background:#e0f3de;
+	border:1px solid #ccedc4
+}
+.ticket.green .button {
+	background:#d2edcf;
+	border-bottom:1px solid #7dd886;
+	color:#62c062;
+	-moz-box-shadow: 0 1px 3px #7dd886;
+	-webkit-box-shadow: 0 1px 3px #7dd886;
+}
+.ticket.green .button:hover {
+	background:#c6e7c4;
+	color:#64ab53;
+}
+.ticket.red {
+	background:#f3dede;
+	border:1px solid #edc4c4
+}
+.ticket.red .button {
+	background:#edcfcf;
+	border-bottom:1px solid #d87d7d;
+	color:#c06262;
+	-moz-box-shadow: 0 1px 3px #d87d7d;
+	-webkit-box-shadow: 0 1px 3px #d87d7d;
+}
+.ticket.red .button:hover {
+	background:#e7c4c4;
+	color:#ab5353;
+}
+
+.editform label {
+	width: auto;
+	display: block;
+	text-align: left;
+	margin: 7px 0 2px 0;
+}
+.editform input.default {
+	margin: 0 0 0 0;
+	width: 250px;
+}
+.editform textarea.default {
+	float: left;
+	margin: 0 0 0 0;
+	width: 250px;
+	height: 70px;
+	line-height: 18px;
+}
+.editform select {
+	float: left;
+	margin: 4px 0 0 0;
+	width: 100%;
+	padding: 3px;
+	font-size: 11px;
+}
+.editform .next {
+	clear: both;
+	width: 10px;
+	height: 10px;
+}
+.editform .mandatory {
+	font-size: 11px;
+	color: #AAA;
+	display: none;
+}
+.editform .left {
+	float: left;
+	margin: 0 0 0 0;
+}
+.ticket.detail {
+	padding: 15px 20px;
+}
+.ticket.detail .first {
+	width: 100%;
+	text-align: left;
+	margin: 4px 0 10px 0;
+}
+.ticket.detail .second {
+	width: 100%;
+	margin: 10px 0 0 0;
+}
+.ticket.detail .second.margin {
+	margin-top: 3px;
+}
+.ticket h2 {
+	margin: 0 0 10px 0;
+	padding: 0;
+	font-family:"Trebuchet MS", Arial, Helvetica;
+	font-size: 15px;
+	font-weight: normal;
+}
+.text13 {
+	font-size: 11px;
+}
+.replyform textarea.default {
+	width: 215px;
+	height: 40px;
+	line-height: 18px;
+	margin: 0 0 10px 0;
+}
+.replyform select {
+	margin: 0;
+	width: 230px;
+	padding: 3px;
+	font-size: 11px;
+}
+.buttonmargin {
+	margin-bottom:10px
+}
+.imgadm {
+	border: 0;
+	vertical-align: text-bottom;
+}
+.user_box {
+	background:#F5F5F5;
+	border:1px solid #EEE;
+	padding:5px 10px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	line-height:25px;
+	height:25px;
+	margin:0 0 10px 0;
+	width:250px;
+}
