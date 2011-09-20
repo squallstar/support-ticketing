@@ -1,9 +1,7 @@
 # SUPPORT-TICKETING
 
 Support-Ticketing is a micro-application that lets you to manage your project issues and gives your customers the opportunity to create tickets and discuss about them.
-
-Under the hood, the ticketing system is made with **PHP5** and the framework is **Mint** by Squallstar Studio.
-
+Under the hood, the ticketing system is made with **PHP5** and powered by **Mint**, a micro-framework by Squallstar Studio.
 Currently it supports only **MySQL** databases!
 
 # How to install
