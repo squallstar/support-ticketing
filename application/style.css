@@ -16,7 +16,7 @@ body, html {
 	line-height:13px;
 	font-size:11px;
 	/*background-color:#e6eaef;*/
-	background: url("http://www.squallstar.it/img/bg.gif") repeat scroll 0 0 #F8F8F8;
+	background: url("/img/bg.gif") repeat scroll 0 0 #F8F8F8;
 	color:#555
 }
 img {
