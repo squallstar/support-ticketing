@@ -13,6 +13,13 @@ Under the hood, the framework is **Mint** by Squallstar Studio.
 
 4. You're done!
 
+# Online demo
+
+You can try an online demo with a customer account here:
+ * http://support.squallstar.it
+ * //Username: demo
+ * //Password: demo
+
 # Resources
 
  * [Project homepage](https://github.com/squallstar/support-ticketing)
