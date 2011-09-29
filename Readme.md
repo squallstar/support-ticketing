@@ -52,9 +52,9 @@ You can try an online demo with a customer account here:
 To contribute through GitHub, first of all fork the main Support-ticketing repository.
 Then, checkout your new fork and type this line into the terminal to stay updated with the main repo:
 
- * git remote add upstream git://github.com/squallstar/support-ticketing.git
+    git remote add upstream git://github.com/squallstar/support-ticketing.git
 
 Now you can pull the upstream updates anytime you want via these commands:
 
- * git fetch upstream
- * git merge upstream/master
+    git fetch upstream
+    git merge upstream/master
