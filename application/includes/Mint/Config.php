@@ -14,16 +14,18 @@
 define('QUERY_LOGGING', false);
 define('EMAIL_LOGGING', false);
 define('LOG_DIRECTORY', '/support/log/');
-define('APPPATH', 'http://support.mycompany.it/');
+define('APPPATH', 'http://support.mycompany.com/');
 define('APPMAIL', 'support@mycompany.it');
 
 /* configs */
 define('DATABASE_HOST', 'localhost');
-define('DATABASE_USER', 'root');
-define('DATABASE_PASS', '');
+define('DATABASE_USER', 'username');
+define('DATABASE_PASS', 'password');
 define('DATABASE_NAME', 'dbname');
 
 /* END OF SETTINGS */
+
+define('TICKETING_VERSION', '1.1');
 
 session_start();
 

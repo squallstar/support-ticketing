@@ -23,7 +23,7 @@ Currently it supports only **MySQL** databases!
 
 3. Execute the SQL contained in the Install-database.sql file
 
-4. You're done!
+4. You're done! The default user is admin:admin
 
 # Screenshot
 

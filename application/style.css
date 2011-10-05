@@ -19,6 +19,9 @@ body, html {
 	background: url("/img/bg.gif") repeat scroll 0 0 #F8F8F8;
 	color:#555
 }
+.hidden {
+	display:none;
+}
 img {
   border:0
 }
