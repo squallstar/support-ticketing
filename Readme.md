@@ -17,7 +17,7 @@ Currently it supports only **MySQL** databases!
 
 # How to install
 
-1. Upload the application folder in the root of your virtualhost
+1. Upload the application folder in the root of your virtualhost. Be sure to copy also the .htaccess file, or the application will not work!
 
 2. Config the database settings and the website url/email here: includes/Mint/Config.php
 
