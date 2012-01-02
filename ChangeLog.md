@@ -8,6 +8,7 @@
 - Added a link to show hidden tickets on the tickets list
 - Copyright year updated on the files
 - Migrating from the previous version: replace all the application files and re-config your includes/Mint/Config.php file
+- Database migration: added "hidden" field on tickets table, added "quotetime" and "completedtime" fields on replies table. Please check the /Install-Database.sql file for further informations.
 
 ** v1.1 **
 
