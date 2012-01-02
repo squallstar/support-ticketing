@@ -19,6 +19,9 @@ body, html {
 	background-color:#e6eaef;
 	color:#555
 }
+.hidden {
+	display:none;
+}
 img {
   border:0
 }
