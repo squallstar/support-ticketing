@@ -54,7 +54,7 @@ CREATE TABLE `support_tickets` (
 -- ----------------------------
 --  Records of `support_tickets`
 -- ----------------------------
-INSERT INTO `support_tickets` VALUES ('1', '1', '1', null, '2011-09-20 09:29:02', 'Primo ticket', 'Ciao mondo! Grazie per aver installato Support ticketing!', null, 'inserted', '', '2011-06-17 00:47:38');
+INSERT INTO `support_tickets` VALUES ('1', '1', '1', null, '2011-09-20 09:29:02', 'Primo ticket', 'Ciao mondo! Grazie per aver installato Support ticketing!', null, 'inserted', '', '2011-06-17 00:47:38', '0');
 
 -- ----------------------------
 --  Table structure for `support_projects`
