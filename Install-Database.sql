@@ -29,9 +29,7 @@ CREATE TABLE `support_users` (
 -- ----------------------------
 --  Records of `support_users`
 -- ----------------------------
-BEGIN;
 INSERT INTO `support_users` VALUES ('1', 'admin', 'admin', 'Admin', '1', 'mail@example.com', '1');
-COMMIT;
 
 -- ----------------------------
 --  Table structure for `support_tickets`
@@ -49,13 +47,13 @@ CREATE TABLE `support_tickets` (
   `status` varchar(12) default NULL,
   `worker` varchar(36) NOT NULL default '0',
   `last_update` datetime NOT NULL default '0000-00-00 00:00:00',
+  `hidden` int(1) default NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Records of `support_tickets`
 -- ----------------------------
-BEGIN;
 INSERT INTO `support_tickets` VALUES ('1', '1', '1', null, '2011-09-20 09:29:02', 'Primo ticket', 'Ciao mondo! Grazie per aver installato Support ticketing!', null, 'inserted', '', '2011-06-17 00:47:38');
 
 -- ----------------------------
@@ -71,9 +69,7 @@ CREATE TABLE `support_projects` (
 -- ----------------------------
 --  Records of `support_projects`
 -- ----------------------------
-BEGIN;
 INSERT INTO `support_projects` VALUES ('1', 'Progetto di prova');
-COMMIT;
 
 -- ----------------------------
 --  Table structure for `support_projects_relations`
@@ -89,9 +85,7 @@ CREATE TABLE `support_projects_relations` (
 -- ----------------------------
 --  Records of `support_projects_relations`
 -- ----------------------------
-BEGIN;
 INSERT INTO `support_projects_relations` VALUES ('1', '1', '1');
-COMMIT;
 
 -- ----------------------------
 --  Table structure for `support_replies`
@@ -104,6 +98,8 @@ CREATE TABLE `support_replies` (
   `data` datetime default NULL,
   `description` text character set utf8,
   `attach` varchar(255) default NULL,
+  `quotetime` int(11) default NULL,
+  `completedtime` int(11) default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
