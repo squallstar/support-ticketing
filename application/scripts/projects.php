@@ -57,8 +57,8 @@ $i = false;
 	<div class="left">
 		<div class="secondline"><?php echo $arr['name']; ?></div>
 		<span class="firstline"><strong>Utenti: </strong><?php foreach ($users as $u) { echo ($i?', ':'').$u['realname']; $i=true;  } ?><br />
+		<a href="<?php echo $delegate->root; ?>graphs/project/<?php echo $arr['hash']; ?>">Visualizza Grafico</a></span> - 
 		<a href="<?php echo $delegate->root; ?>manage/projects?remove=<?php echo $arr['hash']; ?>" onclick="return confirm('Sei sicuro di voler eliminare questo progetto?');">Elimina progetto</a>
-		</span>
 	</div>
 	<div class="right">
 		<a href="<?php echo $delegate->root; ?>manage/project/<?php echo $arr['hash']; ?>" class="button grey">Associazioni</a>
