@@ -4,7 +4,7 @@
  *
  * @package		Support-Ticketing
  * @author		Nicholas Valbusa - info@squallstar.it - @squallstar
- * @copyright	Copyright (c) 2011, Squallstar
+ * @copyright	Copyright (c) 2011-2012, Squallstar
  * @license		GNU/GPL (General Public License)
  * @link		http://squallstar.it
  *
@@ -202,7 +202,7 @@ Class AppDelegate {
 		return $this->db->insert('support_projects_relations', $data);
 	}
 	
-	public function getTickets($limit=15)
+	public function getTickets($limit=15, $showHidden = FALSE)
 	{
 		if (isset($_SESSION['filter'])) {
 			foreach ($_SESSION['me']['projects'] as $id => $arr) {
@@ -217,7 +217,7 @@ Class AppDelegate {
 		}
 		$sql = "SELECT t.id, t.project, t.worker, t.priority, t.data, t.title, t.status, u.realname, t.last_update FROM support_tickets t ".
 			   "INNER JOIN support_users u ON t.owner = u.id ".
-			   "WHERE project ".$filter." ORDER BY last_update DESC LIMIT ".$limit.";";
+			   "WHERE ". ($showHidden ? '' : 'hidden != 1 AND ') ." project ".$filter." ORDER BY last_update DESC LIMIT ".$limit.";";
 			
 	    $this->db->query($sql);
 	    while ($row = $this->db->row()) {
@@ -233,7 +233,7 @@ Class AppDelegate {
 		if ($id) {
 			$id = (int)$id;
 			if ($this->canEditTicket($id)) {
-				$sql = "SELECT t.owner, t.project, t.data, t.title, t.status, t.worker, u.realname, t.description, t.attach FROM support_tickets t ".
+				$sql = "SELECT t.owner, t.project, t.data, t.title, t.status, t.worker, u.realname, t.description, t.attach, t.hidden FROM support_tickets t ".
 					   "INNER JOIN support_users u ON t.owner = u.id WHERE t.id = ".$id." LIMIT 1;";
 				$this->db->query($sql);
 				if ($this->db->numRows()) {
@@ -284,6 +284,15 @@ Class AppDelegate {
 			}
 		}
 		$this->tickets[$id] = 'false';
+		return false;
+	}
+	
+	public function hideTicket($id, $hide = TRUE)
+	{
+		$id = (int)$id;
+		if ($this->canEditTicket($id)) {
+			return $this->db->query("UPDATE support_tickets SET hidden = " . ($hide ? '1' : '0') ." WHERE id = ".$id." LIMIT 1;");
+		}
 		return false;
 	}
 	
@@ -343,8 +352,8 @@ Class AppDelegate {
 
 	
 	public function getTicketReplies($id)
-	{
-		$sql = "SELECT r.id, u.realname, r.data, r.description, r.attach FROM support_replies r ".
+{
+		$sql = "SELECT u.realname, r.data, r.description, r.attach, r.quotetime, r.completedtime FROM support_replies r ".
 			   "INNER JOIN support_users u ON r.owner = u.id WHERE ticket = ".(int)$id." ORDER BY r.id ASC;";
 		$this->db->query($sql);
 		if ($this->db->numRows()) {
@@ -355,7 +364,9 @@ Class AppDelegate {
 					'realname' => $row['realname'],
 					'data' => $row['data'],
 					'description' => stripslashes($row['description']),
-					'attach' => $row['attach']
+					'attach' => $row['attach'],
+					'quotetime' => $row['quotetime'],
+					'completedtime' => $row['completedtime']
 				);
 			}
 			return $tmp;
@@ -399,7 +410,7 @@ Class AppDelegate {
 		}
 	}
 	
-	public function addReply($description, $ticketId, $attach='')
+	public function addReply($description, $ticketId, $attach='', $quotetime = 0, $completedtime = 0)
 	{
 		if ($this->canEditTicket($ticketId)) {
 			$data = array(
@@ -409,6 +420,9 @@ Class AppDelegate {
 				'data' => date('Y-m-d H:i:s'),
 				'attach' => $attach
 			);
+			if ($quotetime) $data['quotetime'] = (int)$quotetime;
+			if ($completedtime) $data['completedtime'] = (int)$completedtime;
+
 			if ($this->db->insert('support_replies', $data)) {
 				$this->db->query("UPDATE support_tickets SET last_update = '".date('Y-m-d H:i:s')."' WHERE id = ".$ticketId." LIMIT 1;");
 				$infos = array(
@@ -514,5 +528,30 @@ Class AppDelegate {
 		);
 		
 		return trim($text);
+	
 	}
+
+	public function displayTime($duration = 0)
+	{
+		$duration_h = 0;
+		$duration_m = 0;
+
+		while ($duration) {
+			if ($duration>59) {
+				$duration_h+=1;
+				$duration-=60;
+			}else{
+				$duration_m=$duration;
+				$duration=0;
+			}
+		}
+		if ($duration_m && $duration_h) {
+			return $duration_h . ' '.($duration_h > 1 ? 'ore' : 'ora').' e ' . $duration_m . ' minuti';
+		} else if ($duration_h && !$duration_m) {
+			return $duration_h . ' '.($duration_h > 1 ? 'ore' : 'ora');
+		} else {
+			return $duration_m . ' minuti';
+		}
+	}
+	
 }

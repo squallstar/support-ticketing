@@ -1,5 +1,14 @@
 # Support-Ticketing ChangeLog #
 
+** v1.2 (2012-01-02) **
+
+- New feature: "Quote time" added on ticket replies
+- New feature: "Completion time" added on ticket replies
+- Added a button to hide/show a ticket (useful to hide old tickets without deleting them)
+- Added a link to show hidden tickets on the tickets list
+- Copyright year updated on the files
+- Migrating from the previous version: replace all the application files and re-config your includes/Mint/Config.php file
+
 ** v1.1 **
 
 - Manage projects: you can create and delete projects from the interface
@@ -12,4 +21,4 @@
 
 ** v1.0 **
 
-- First commit
+- First public release on GitHub

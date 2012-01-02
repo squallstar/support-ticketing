@@ -4,7 +4,7 @@
  *
  * @package		Support-Ticketing
  * @author		Nicholas Valbusa - info@squallstar.it - @squallstar
- * @copyright	Copyright (c) 2011, Squallstar
+ * @copyright	Copyright (c) 2011-2012, Squallstar
  * @license		GNU/GPL (General Public License)
  * @link		http://squallstar.it
  *
@@ -36,7 +36,7 @@ if (strlen($_POST['description'])) {
 	$html_to = array('&lt;', '&gt;');
 	$_POST['description'] = str_replace($html_from, $html_to, $_POST['description']);
 	
-	$done = $delegate->addReply($_POST['description'], $id, $attach);
+	$done = $delegate->addReply($_POST['description'], $id, $attach, $_POST['quotetime'], $_POST['completedtime']);
 	if (!$delegate->isAdmin() && $done) {
 		$delegate->changeTicketStatus($id, 'discussion');
 	}
@@ -98,6 +98,15 @@ $delegate->renderHeader();
 		<br /><br />File allegato: <strong><a href="<?php echo $delegate->root.'attach/'.$reply['attach']; ?>" target="_blank"><?php echo substr($reply['attach'], 15); ?></a></strong>
 		
 		<?php } ?>
+
+		<?php
+		if ($reply['quotetime']) { ?>
+		<br /><br /><span class="imgtime"></span> Stima tempi: <strong><?php echo $delegate->displayTime($reply['quotetime']); ?>.</strong>
+		<?php }
+		if ($reply['completedtime']) { ?>
+		<br /><br /><span class="imgtick"></span> Ticket completato in <strong><?php echo $delegate->displayTime($reply['completedtime']); ?>.</strong>
+		<?php } ?>
+		
 		</span>
 	</div>
 	<div class="clear"></div>
@@ -127,7 +136,20 @@ $delegate->renderHeader();
 				</select><br /><br />
 				<?php } ?>
 				<textarea class="default" name="description" id="description"></textarea><br />
-				Allega file <input type="file" class="default" name="attach" id="attach"/><br /><br />
+				
+
+				
+				<a href="#" onclick="switchAdvancedOptions();return false;" class="advanced_options">+ Opzioni Avanzate</a><br /><br />
+				<div id="advanced_options">
+					Allega file <input type="file" class="default" name="attach" id="attach"/>
+					<?php if ($delegate->isAdmin()) { ?>
+					<br /><br />
+					<strong>Stima tempi:</strong> &nbsp;<input type="text" class="default small align-right" name="quotetime" value="" /> &nbsp;minuti&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
+					<strong>Tempo di completamento:</strong> &nbsp;<input type="text" class="default small align-right" name="completedtime" value="" /> &nbsp;minuti<br /><br />
+					<?php } ?>
+				</div>
+				
+
 				<input type="submit" class="button blue" value="Invia risposta" <?php if (!$delegate->isAdmin()) { ?>onclick="if($('#description').val()=='') { alert('Per inviare una risposta occorre digitare del testo nell\'apposita textarea.'); return false; }else{ return true; }"<?php } ?>/>
 			</fieldset>
 		</form>
@@ -141,7 +163,12 @@ $delegate->renderHeader();
 <a href="<?php echo $delegate->root; ?>list" class="button blue buttonmargin">Torna alla lista</a>&nbsp;&nbsp;&nbsp;
 <a class="button buttonmargin" href="<?php echo $delegate->root; ?>ticket/edit/<?php echo $ticket['id']; ?>">Modifica ticket</a>&nbsp;&nbsp;&nbsp;
 <?php if ($delegate->isAdmin()) { ?>
-<a class="button buttonmargin" href="<?php echo $delegate->root; ?>list/delete-ticket/<?php echo $ticket['id']; ?>" onclick="return confirm('Eliminare questo ticket?');">Elimina ticket</a>
+	<?php if ($ticket['hidden'] == 0) { ?>
+	<a class="button buttonmargin" href="<?php echo $delegate->root; ?>list/hide-ticket/<?php echo $ticket['id']; ?>" onclick="return confirm('Nascondere questo ticket?');">Nascondi ticket</a>
+	<?php } else { ?>
+	<a class="button buttonmargin" href="<?php echo $delegate->root; ?>list/show-ticket/<?php echo $ticket['id']; ?>" onclick="return confirm('Mostrare nuovamente questo ticket?');">Rendi ticket visibile</a>
+	<?php } ?>
+&nbsp;&nbsp;&nbsp;<a class="button buttonmargin" href="<?php echo $delegate->root; ?>list/delete-ticket/<?php echo $ticket['id']; ?>" onclick="return confirm('Eliminare questo ticket?');">Elimina ticket</a>
 <?php }else{ ?>
 <a class="button buttonmargin" href="<?php echo $delegate->root; ?>ticket/<?php echo $ticket['id']; ?>/close" onclick="return confirm('Inviare una e-mail per richiesta chiusura ticket?');">Richiedi chiusura ticket</a>
 <?php } ?>

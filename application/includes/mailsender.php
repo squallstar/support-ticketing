@@ -4,7 +4,7 @@
  *
  * @package		Support-Ticketing
  * @author		Nicholas Valbusa - info@squallstar.it - @squallstar
- * @copyright	Copyright (c) 2011, Squallstar
+ * @copyright	Copyright (c) 2011-2012, Squallstar
  * @license		GNU/GPL (General Public License)
  * @link		http://squallstar.it
  *
@@ -38,7 +38,7 @@ Class MailSender {
 				if ($ticket['status'] == 'resolved') $this->subject = 'Ticket risolto';
 				else if ($ticket['status'] == 'assigned') $this->subject = 'Ticket preso in carico';
 				else $this->subject = 'Nuova risposta ricevuta';
-				$this->body = $this->myname." ha inserito una risposta:\r\n".stripslashes($info['message']).
+				$this->body = $this->myname." ha inserito una risposta:\r\n".htmlentities(stripslashes($info['message'])).
 					"\r\nPer visualizzare il ticket, visita il seguente indirizzo:\r\n".$this->root.'ticket/'.$ticket['id'];
 				break;
 			case 'closed':

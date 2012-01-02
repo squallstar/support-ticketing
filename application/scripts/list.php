@@ -4,7 +4,7 @@
  *
  * @package		Support-Ticketing
  * @author		Nicholas Valbusa - info@squallstar.it - @squallstar
- * @copyright	Copyright (c) 2011, Squallstar
+ * @copyright	Copyright (c) 2011-2012, Squallstar
  * @license		GNU/GPL (General Public License)
  * @link		http://squallstar.it
  *
@@ -22,9 +22,24 @@ if (strlen($_GET['filter']) && $_GET['filter'] != 'reset') {
 	$filter = null;
 }
 
+$delete = FALSE;
 if (isset($_GET['remove_ticket'])) {
 	if ($delegate->deleteTicket((int)$_GET['remove_ticket'])) {
-		$delete=true;
+		$delete=TRUE;
+	}
+}
+
+$hide = FALSE;
+if (isset($_GET['hide_ticket'])) {
+	if ($delegate->hideTicket((int)$_GET['hide_ticket'])) {
+		$hide=TRUE;
+	}
+}
+
+$show = FALSE;
+if (isset($_GET['show_ticket'])) {
+	if ($delegate->hideTicket((int)$_GET['show_ticket'], FALSE)) {
+		$show=TRUE;
 	}
 }
 
@@ -55,10 +70,18 @@ foreach ($delegate->myProjects() as $id => $arr) { ?>
 <span class="error"><br />Il ticket &egrave; stato eliminato.<br /></span>
 <?php } ?>
 
+<?php if ($hide) { ?>
+<span class="error"><br />Il ticket &egrave; stato nascosto.<br /></span>
+<?php } ?>
+
+<?php if ($show) { ?>
+<span class="error"><br />Il ticket &egrave; nuovamente visibile.<br /></span>
+<?php } ?>
+
 <br />
 
 <?php
-$tickets = $delegate->getTickets();
+$tickets = $delegate->getTickets(999, isset($_GET['showall']) ? TRUE : FALSE);
 if ($tickets) {
 	foreach ($tickets as $ticket) {
 	$color = $delegate->getTicketColor($ticket['status']);
@@ -78,7 +101,9 @@ if ($tickets) {
 	
 
 </div>
-<?php }
+<?php } ?>
+	<br /><a href="<?php echo $delegate->root; ?>list?showall=true">Mostra ticket nascosti</a>
+<?php
 }else echo 'Nessun ticket inserito.'; ?>
 
 

@@ -6,6 +6,8 @@ RewriteRule ^login$ /scripts/login.php
 RewriteRule ^list$ /scripts/list.php
 RewriteRule ^list/filter/([0-9A-Za-z]+)$ /scripts/list.php?filter=$1
 RewriteRule ^list/delete-ticket/([0-9]+)$ /scripts/list.php?remove_ticket=$1
+RewriteRule ^list/hide-ticket/([0-9]+)$ /scripts/list.php?hide_ticket=$1
+RewriteRule ^list/show-ticket/([0-9]+)$ /scripts/list.php?show_ticket=$1
 
 RewriteRule ^ticket/$ /scripts/list.php
 RewriteRule ^ticket/([0-9]+)$ /scripts/history.php?id=$1

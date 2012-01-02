@@ -4,7 +4,7 @@
  *
  * @package		Support-Ticketing
  * @author		Nicholas Valbusa - info@squallstar.it - @squallstar
- * @copyright	Copyright (c) 2011, Squallstar
+ * @copyright	Copyright (c) 2011-2012, Squallstar
  * @license		GNU/GPL (General Public License)
  * @link		http://squallstar.it
  *
@@ -321,4 +321,30 @@ select.projects {
 	height:25px;
 	margin:0 0 10px 0;
 	width:250px;
+}
+a.advanced_options {
+	text-decoration:none;
+}
+div#advanced_options {
+	display:none;
+	margin:0 0 20px 0;
+}
+input.align-right {
+	text-align:right;
+}
+.imgtick {
+	border: 0;
+	vertical-align: text-bottom;
+	width:16px;
+	height:16px;
+	display:inline-block;
+	background:url('img/tick.png') no-repeat top left;
+}
+.imgtime {
+	border: 0;
+	vertical-align: text-bottom;
+	width:16px;
+	height:16px;
+	display:inline-block;
+	background:url('img/time.png') no-repeat top left;
 }
