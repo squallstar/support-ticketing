@@ -6,6 +6,7 @@
 - New feature: "Completion time" added on ticket replies
 - Added a button to hide/show a ticket (useful to hide old tickets without deleting them)
 - Added a link to show hidden tickets on the tickets list
+- New feature: project graphic with some riepilogue data such as closed tickets + replies
 - Copyright year updated on the files
 - Migrating from the previous version: replace all the application files and re-config your includes/Mint/Config.php file
 - Database migration: added "hidden" field on tickets table, added "quotetime" and "completedtime" fields on replies table. Please check the /Install-Database.sql file for further informations.
